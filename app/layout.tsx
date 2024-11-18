@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'BoostFlow | Boost your productivity with BoostFlow',
+  title: 'TaskSync | Synchronise your goals and todos effortlessly.',
   description:
     'BoostFlow is a productivity tool that helps you stay ahead with effortless task management',
 };
