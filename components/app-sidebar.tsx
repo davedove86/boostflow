@@ -34,7 +34,7 @@ const data = {
   navMain: [
     {
       title: 'Home',
-      url: '#',
+      url: '/dashboard',
       icon: Home,
       // isActive: true,
       // items: [
@@ -54,7 +54,7 @@ const data = {
     },
     {
       title: 'Tasks',
-      url: '#',
+      url: '/tasks',
       icon: SquareCheck,
       // items: [
       //   {
@@ -73,7 +73,7 @@ const data = {
     },
     {
       title: 'Calendar',
-      url: '#',
+      url: '/calendar',
       icon: Calendar,
       // items: [
       //   {
@@ -98,12 +98,12 @@ const data = {
   navSecondary: [
     {
       title: 'Support',
-      url: '#',
+      url: '/support',
       icon: LifeBuoy,
     },
     {
       title: 'Settings',
-      url: '#',
+      url: '/settings',
       icon: Settings2,
     },
   ],
