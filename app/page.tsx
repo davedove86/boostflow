@@ -8,12 +8,12 @@ export default function Home() {
       <ModeToggle />
       <div className='flex flex-col justify-center items-center gap-6 max-w-80 text-center'>
         <Image
-          src='/boostflow-logo.png'
-          alt='BoostFlow Logo'
+          src='/tasksync-logo.svg'
+          alt='TaskSync Logo'
           width={100}
           height={100}
         ></Image>
-        <h1 className='text-3xl font-bold'>BoostFlow</h1>
+        <h1 className='text-3xl font-bold'>TaskSync</h1>
         <p>
           Unleash Your Potential and Stay Ahead with Effortless Task Management
         </p>
