@@ -6,8 +6,8 @@ import {
   LifeBuoy,
   Settings2,
   SquareCheck,
-  Rocket,
   Home,
+  BadgeCheck,
 } from 'lucide-react';
 
 import { NavMain } from '@/components/nav-main';
@@ -111,17 +111,17 @@ const data = {
     {
       name: 'Apple Inc Design',
       url: '#',
-      icon: Rocket,
+      icon: BadgeCheck,
     },
     {
       name: 'Google Project',
       url: '#',
-      icon: Rocket,
+      icon: BadgeCheck,
     },
     {
       name: 'Microsoft Project',
       url: '#',
-      icon: Rocket,
+      icon: BadgeCheck,
     },
   ],
 };
@@ -135,10 +135,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuButton size='lg' asChild>
               <a href='/dashboard'>
                 <div className='flex aspect-square size-8 items-center justify-center rounded-full bg-[#2983bf] text-sidebar-primary-foreground'>
-                  <Rocket className='size-4' />
+                  <BadgeCheck className='size-4' />
                 </div>
                 <div className='grid flex-1 text-left text-sm leading-tight'>
-                  <span className='truncate font-semibold'>Boost Flow</span>
+                  <span className='truncate font-semibold'>TaskSync</span>
                   {/* <span className='truncate text-xs'></span> */}
                 </div>
               </a>
