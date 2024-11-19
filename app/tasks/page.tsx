@@ -14,8 +14,29 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar';
+import { masterTaskList } from '@/lib/data';
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { SquareCheck } from 'lucide-react';
+
+type MasterTask = {
+  id: number;
+  title: string;
+  description: string;
+  completed: boolean;
+  priority: string;
+};
 
 export default function Page() {
+  // bring in data from lib/data.ts
+  const tasks: MasterTask[] = masterTaskList;
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -44,7 +65,46 @@ export default function Page() {
             <div className='aspect-video rounded-xl bg-muted/50' />
             <div className='aspect-video rounded-xl bg-muted/50' />
           </div>
-          <div className='min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min' />
+          <div className='min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min'>
+            <Table>
+              <TableCaption className='hidden'>
+                A list of all your tasks
+              </TableCaption>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className='w-[50px]'>
+                    <SquareCheck size={15} />
+                  </TableHead>
+                  <TableHead>Title</TableHead>
+                  <TableHead>Description</TableHead>
+                  <TableHead>Priority</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {tasks.map((task) => (
+                  <TableRow key={task.id}>
+                    <TableCell>
+                      <input type='checkbox' />
+                    </TableCell>
+                    <TableCell>{task.title}</TableCell>
+                    <TableCell>{task.description}</TableCell>
+                    <TableCell
+                      className={`text-gray-800 ${
+                        task.priority === 'high'
+                          ? 'bg-red-400'
+                          : task.priority === 'medium'
+                          ? 'bg-yellow-400'
+                          : 'bg-green-400'
+                      }`}
+                    >
+                      {task.priority.charAt(0).toUpperCase() +
+                        task.priority.slice(1)}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </div>
       </SidebarInset>
     </SidebarProvider>

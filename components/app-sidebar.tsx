@@ -139,7 +139,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </div>
                 <div className='grid flex-1 text-left text-sm leading-tight'>
                   <span className='truncate font-semibold'>TaskSync</span>
-                  {/* <span className='truncate text-xs'></span> */}
+                  <span className='truncate text-xs'>Sync your todos</span>
                 </div>
               </a>
             </SidebarMenuButton>
