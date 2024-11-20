@@ -1,5 +1,7 @@
 import { AppSidebar } from '@/components/app-sidebar';
 import { ModeToggle } from '@/components/modeToggle';
+import { Button } from '@/components/ui/button';
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -115,9 +117,7 @@ export default function Page() {
                     <TableRow key={project.id}>
                       <TableCell>{project.name}</TableCell>
                       <TableCell className='text-right'>
-                        <button className='bg-[#2983bf] text-white rounded-md py-2 px-4'>
-                          View Project
-                        </button>
+                        <Button>View Project</Button>
                       </TableCell>
                     </TableRow>
                   ))}
