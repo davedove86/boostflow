@@ -1,3 +1,5 @@
+import { BadgeCheck } from 'lucide-react';
+
 // Temp data
 export const masterTaskList = [
   {
@@ -43,3 +45,42 @@ export const masterTaskList = [
     priority: 'low',
   },
 ];
+
+export const projectsList = [
+  {
+    id: 1,
+    name: 'Apple Inc Design',
+    url: '#',
+    icon: BadgeCheck,
+    pinned: true
+  },
+  {
+    id: 2,
+    name: 'Google Project',
+    url: '#',
+    icon: BadgeCheck,
+    pinned: true
+  },
+  {
+    id: 3,
+    name: 'Microsoft Project',
+    url: '#',
+    icon: BadgeCheck,
+    pinned: false
+  },
+  {
+    id: 4,
+    name: 'Facebook Project',
+    url: '#',
+    icon: BadgeCheck,
+    pinned: false
+  },
+  {
+    id: 6,
+    name: 'Instagram Project',
+    url: '#',
+    icon: BadgeCheck,
+    pinned: false
+  },
+
+]

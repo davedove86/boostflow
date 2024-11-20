@@ -89,7 +89,7 @@ export default function Page() {
                     <TableCell>{task.title}</TableCell>
                     <TableCell>{task.description}</TableCell>
                     <TableCell
-                      className={`text-gray-800 ${
+                      className={`text-black text-center ${
                         task.priority === 'high'
                           ? 'bg-red-400'
                           : task.priority === 'medium'

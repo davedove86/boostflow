@@ -23,6 +23,16 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { projectsList } from '@/lib/data'; // Adjust the import path as necessary
+import { LucideIcon } from 'lucide-react';
+
+type Projects = {
+  id: number;
+  name: string;
+  url: string;
+  icon: LucideIcon;
+  pinned: boolean;
+};
 
 const data = {
   user: {
@@ -107,26 +117,10 @@ const data = {
       icon: Settings2,
     },
   ],
-  projects: [
-    {
-      name: 'Apple Inc Design',
-      url: '#',
-      icon: BadgeCheck,
-    },
-    {
-      name: 'Google Project',
-      url: '#',
-      icon: BadgeCheck,
-    },
-    {
-      name: 'Microsoft Project',
-      url: '#',
-      icon: BadgeCheck,
-    },
-  ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const projects: Projects[] = projectsList;
   return (
     <Sidebar variant='inset' collapsible='icon' {...props}>
       <SidebarHeader>
@@ -148,7 +142,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavProjects projects={projects.filter((project) => project.pinned)} />
         <NavSecondary items={data.navSecondary} className='mt-auto' />
       </SidebarContent>
       <SidebarFooter>

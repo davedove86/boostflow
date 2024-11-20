@@ -12,8 +12,29 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@/components/ui/sidebar';
+import { masterTaskList, projectsList } from '@/lib/data';
+
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { SquareCheck } from 'lucide-react';
+
+type MasterTask = {
+  id: number;
+  title: string;
+  description: string;
+  completed: boolean;
+  priority: string;
+};
 
 export default function Page() {
+  const tasks: MasterTask[] = masterTaskList;
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -35,13 +56,116 @@ export default function Page() {
         <div className='flex flex-1 flex-col gap-4 p-4 pt-0'>
           <div className='min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min p-4'>
             <h2>Welcome John Doe</h2>
+            <Table>
+              <TableCaption className='hidden'>
+                A list of all your tasks
+              </TableCaption>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className='w-[50px]'>
+                    <SquareCheck size={15} />
+                  </TableHead>
+                  <TableHead>Title</TableHead>
+                  <TableHead>Description</TableHead>
+                  <TableHead>Priority</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {tasks
+                  .filter((task) => task.priority === 'high')
+                  .map((task) => (
+                    <TableRow key={task.id}>
+                      <TableCell>
+                        <input type='checkbox' />
+                      </TableCell>
+                      <TableCell>{task.title}</TableCell>
+                      <TableCell>{task.description}</TableCell>
+                      <TableCell
+                        className={`text-black text-center ${
+                          task.priority === 'high'
+                            ? 'bg-red-400'
+                            : task.priority === 'medium'
+                            ? 'bg-yellow-400'
+                            : 'bg-green-400'
+                        }`}
+                      >
+                        {task.priority.charAt(0).toUpperCase() +
+                          task.priority.slice(1)}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
           </div>
           <div className='grid auto-rows-min gap-4 md:grid-cols-2'>
             <div className='aspect-video rounded-xl bg-muted/50 p-4'>
-              <h2>To Do Tasks</h2>
+              <h2>Projects</h2>
+              <Table>
+                <TableCaption className='hidden'>
+                  A list of all your projects
+                </TableCaption>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Name</TableHead>
+                    <TableHead></TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {projectsList.map((project) => (
+                    <TableRow key={project.id}>
+                      <TableCell>{project.name}</TableCell>
+                      <TableCell className='text-right'>
+                        <button className='bg-[#2983bf] text-white rounded-md py-2 px-4'>
+                          View Project
+                        </button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </div>
             <div className='aspect-video rounded-xl bg-muted/50 p-4'>
-              <h2>Overdue Tasks</h2>
+              <h2>Low Priority Tasks</h2>
+              <Table>
+                <TableCaption className='hidden'>
+                  A list of all your tasks
+                </TableCaption>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className='w-[50px]'>
+                      <SquareCheck size={15} />
+                    </TableHead>
+                    <TableHead>Title</TableHead>
+                    <TableHead>Description</TableHead>
+                    <TableHead>Priority</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {tasks
+                    .filter((task) => task.priority === 'low')
+                    .map((task) => (
+                      <TableRow key={task.id}>
+                        <TableCell>
+                          <input type='checkbox' />
+                        </TableCell>
+                        <TableCell>{task.title}</TableCell>
+                        <TableCell>{task.description}</TableCell>
+                        <TableCell
+                          className={`text-black text-center ${
+                            task.priority === 'high'
+                              ? 'bg-red-400'
+                              : task.priority === 'medium'
+                              ? 'bg-yellow-400'
+                              : 'bg-green-400'
+                          }`}
+                        >
+                          {task.priority.charAt(0).toUpperCase() +
+                            task.priority.slice(1)}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                </TableBody>
+              </Table>
             </div>
           </div>
         </div>
