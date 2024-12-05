@@ -83,19 +83,19 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <Link href='/account'>
-                <DropdownMenuItem>
+                <DropdownMenuItem className='cursor-pointer'>
                   <CircleUser />
                   Account
                 </DropdownMenuItem>
               </Link>
               <Link href='/billing'>
-                <DropdownMenuItem>
+                <DropdownMenuItem className='cursor-pointer'>
                   <CreditCard />
                   Billing
                 </DropdownMenuItem>
               </Link>
               <Link href='/notifications'>
-                <DropdownMenuItem>
+                <DropdownMenuItem className='cursor-pointer'>
                   <Bell />
                   Notifications
                 </DropdownMenuItem>
@@ -103,7 +103,7 @@ export function NavUser({
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <Link href='/'>
-              <DropdownMenuItem>
+              <DropdownMenuItem className='cursor-pointer'>
                 <LogOut />
                 Log out
               </DropdownMenuItem>

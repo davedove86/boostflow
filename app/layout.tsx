@@ -17,7 +17,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: 'TaskSync | Synchronise your goals and todos effortlessly.',
   description:
-    'BoostFlow is a productivity tool that helps you stay ahead with effortless task management',
+    'TaskSync is a productivity tool that helps you stay ahead with effortless task management',
 };
 
 export default function RootLayout({
